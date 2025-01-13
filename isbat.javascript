@@ -1,28 +1,22 @@
-document.getElementById('form-pendaftaran').addEventListener('submit', function(e) {
-    e.preventDefault(); 
+document.getElementById('form-pendaftaran').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const nama = document.getElementById('nama').value;
+    const usia = document.getElementById('usia').value;
+    const telp = document.getElementById('telp').value;
+    const alamat = document.getElementById('alamat').value;
+    
+    // Menampilkan hasil input
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `<h3>Terima kasih, ${nama}!</h3>
+                           <p>Data Anda telah berhasil diterima.</p>
+                           <ul>
+                               <li>Usia: ${usia}</li>
+                               <li>Nomor WhatsApp: ${telp}</li>
+                               <li>Alamat: ${alamat}</li>
+                           </ul>`;
 
-    let nama = document.getElementById('nama').value;
-    let email = document.getElementById('email').value;
-    let telp = document.getElementById('telp').value;
-    let alamat = document.getElementById('alamat').value;
-
-    // Validasi email
-    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!emailPattern.test(email)) {
-        alert('Harap masukkan email yang valid.');
-        return;
-    }
-
-    // Validasi nomor telepon
-    let telpPattern = /^[0-9]{10,15}$/;
-    if (!telpPattern.test(telp)) {
-        alert('Harap masukkan nomor telepon yang valid.');
-        return;
-    }
-
-    // Jika semua validasi lolos
-    alert('Pendaftaran berhasil!');
-
-    // Reset formulir
+    // Reset form setelah pengiriman
     document.getElementById('form-pendaftaran').reset();
 });
+
