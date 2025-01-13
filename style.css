@@ -121,3 +121,16 @@ footer .social-media a {
 footer .social-media a:hover {
     transform: scale(1.2);
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
